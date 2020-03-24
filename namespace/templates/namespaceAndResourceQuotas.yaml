@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.projectName }}-app-dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.projectName }}-app-prod
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.projectName }}-bdd-dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.projectName }}-bdd-prod
+
+
+
+
+
+# Resource Quotas
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ .Values.projectName }}-{{ include "namespace.fullname" . }}
+  namespace: {{ .Values.projectName }}-app-dev
+spec:
+  hard:
+    requests.cpu: "1"
+    limits.cpu: "2"
+    requests.memory: 1Gi
+    limits.memory: 2Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ .Values.projectName }}-{{ include "namespace.fullname" . }}
+  namespace: {{ .Values.projectName }}-app-prod
+spec:
+  hard:
+    requests.cpu: "1"
+    limits.cpu: "4"
+    requests.memory: 1Gi
+    limits.memory: 4Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ .Values.projectName }}-{{ include "namespace.fullname" . }}
+  namespace: {{ .Values.projectName }}-bdd-dev
+spec:
+  hard:
+    requests.cpu: "1"
+    limits.cpu: "2"
+    requests.memory: 1Gi
+    limits.memory: 2Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: {{ .Values.projectName }}-{{ include "namespace.fullname" . }}
+  namespace: {{ .Values.projectName }}-bdd-prod
+spec:
+  hard:
+    requests.cpu: "1"
+    limits.cpu: "4"
+    requests.memory: 1Gi
+    limits.memory: 4Gi
