@@ -12,6 +12,8 @@ minikube start
 
 ## 1. Découpage en Namespace
 Nous avons choisi un découpage en 4 namespace par client, 2 pour les bases de données (dev et prod) et 2 autres pour le projet (dev et prod)
+* Les namespaces client1-app-dev et -prod contiendront l'application du client
+* Les namespaces client1-bdd-dev et -prod contiendront uniquement les bases de données
 
 Nous avons également des namespaces spécifiques à notre usage. On retrouve par exemple `monitoring`, créé durant la partie 5.
 
