@@ -4,6 +4,15 @@
 ## Prérequis
 * minikube
 * [helm](https://helm.sh/docs/intro/install/)
+* kubedb
+    ```
+    helm repo add appscode https://charts.appscode.com/stable/
+    helm repo update
+    helm search repo appscode/kubedb
+    helm install kubedb-operator appscode/kubedb --version 0.9.0 --namespace kube-system
+
+    helm install kubedb-catalog appscode/kubedb-catalog --version 0.9.0 --namespace kube-system
+    ```
 
 ## Démarrage
 ```
@@ -37,6 +46,7 @@ Nous avons également des namespaces spécifiques à notre usage. On retrouve pa
     ```
 
 ## 2. KubeDB
+*Fichiers de configuration dans ./namespace/templates*
 
 ## 3. Wordpress
 
