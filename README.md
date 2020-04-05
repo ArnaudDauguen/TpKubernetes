@@ -1,4 +1,4 @@
-# Kubernetes BAA
+# Kubernetes B3A
 ### Dauguen Arnaud / Hay Théo / Sella Justin
 
 ## Prérequis
@@ -20,9 +20,9 @@ Nous avons également des namespaces spécifiques à notre usage. On retrouve pa
 * Lancer la génération automatique des namespace
   * (remplacez `<client-name>` par le nom du nouveau client
   * /!\ Ne doit contenir que :
-    * lettre miniscules [a-z]
-    * '-'
-    * '.'
+    * des lettre miniscules [a-z]
+    * des '-'
+    * des '.'
   * doit commencer et terminer par une lettre miniscule [a-z]
   ```
   helm install --generate-name ./namespace --set projectName=<client-name>
@@ -40,7 +40,8 @@ Nous avons également des namespaces spécifiques à notre usage. On retrouve pa
 
 ## 3. Wordpress
 
-## 4. RBAC
+## 4. RBAC (Role Based Access Control)
+
 
 ## 5. Monitoring
 Note: namespace pour cette partie : `monitoring` ou changer le nom paragraphe 1
