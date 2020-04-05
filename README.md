@@ -51,6 +51,22 @@ Nous avons également des namespaces spécifiques à notre usage. On retrouve pa
 ## 3. Wordpress
 
 ## 4. RBAC (Role Based Access Control)
+```
+minikube start --extra-config=apiserver.Authorization.Mode=RBAC
+```
+Cette commande est censé démarrer un cluster en mode RBAC
+
+Rôles prévus :
+* Administrateur de cluster
+  * Acces à tous les namespace administratifs
+  * Acces aux namespaces clients en lecture uniquement
+* Sysops (chez le client)
+  * Acces à tous les namespaces du client
+* Developpeur (chez le client)
+  * Acces à tous les namespaces du client
+* Client
+  * Acces aux namespaces prod du client, en lecture uniquement
+
 
 
 ## 5. Monitoring
