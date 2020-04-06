@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pgadmin
-  name: {{ .Values.projectName }}-pgadmin-dev
+  name: pgadmin
   namespace: {{ .Values.projectName }}-bdd-dev
 spec:
   replicas: 1
@@ -18,7 +18,7 @@ spec:
       containers:
       - image: dpage/pgadmin4:latest
         imagePullPolicy: Always
-        name: {{ .Values.projectName }}-pgadmin-dev
+        name: pgadmin
         env:
         - name: PGADMIN_DEFAULT_EMAIL
           value: "admin"
@@ -30,15 +30,21 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-          
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "800m"
+          requests:
+            memory: "200Mi"
+            cpu: "400m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     app: pgadmin
-  name: {{ .Values.projectName }}-pgadmin-dev
-  namespace: {{ .Values.projectName }}-bdd-prod
+  name: pgadmin
+  namespace: {{ .Values.projectName }}-bdd-dev
 spec:
   ports:
   - name: http

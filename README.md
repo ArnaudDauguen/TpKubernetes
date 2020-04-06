@@ -15,8 +15,10 @@
     ```
 
 ## Démarrage
+* on va supprimer l'ancienne VM et en créer une nouvelle avec plus de CPU de de mémoire que celle de base
 ```
-minikube start
+minikube delete
+minikube start --cpus 4 --memory 8192
 ```
 
 ## 1. Découpage en Namespace
